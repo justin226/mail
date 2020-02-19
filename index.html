@@ -3,6 +3,28 @@
   <head>
   </head>
   <body>
-  
+    <button id="create">+ New Mail</button><br>
+    <div id="form" style="display: none">
+      <div>
+        <input id="email" type="email">
+      </div>
+      <div>
+        <input id="subject" type="subject">
+      </div>
+      <div>
+        <textarea id="body" style="resize: both"></textarea>
+      </div>
+      <button id="send">Send</button>
+    </div>
+    <iframe id="mail"></iframe>
+    <script>
+      document.getElementById("create").addEventListener("click", function(){
+        document.getElementById("form").style.display = "block";
+      });
+      document.getElementById("send").addEventListener("click", function(){
+        document.getElementById("form").style.display = "none";
+        window.open("mailto:" + document.getElementById("email").value + "?subject=" + document.getElementById("subject").value + "&body=" + document.getElementById("body").value);
+      });
+    </script>
   </body>
 </html>
